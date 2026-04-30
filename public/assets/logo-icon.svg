@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="iconTitle">
+  <title id="iconTitle">A & S monogram</title>
+  <defs>
+    <radialGradient id="rg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fff7ef" />
+      <stop offset="100%" stop-color="#d4a373" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="96" fill="url(#rg)" stroke="#b08968" stroke-width="4" />
+
+  <g transform="translate(100,108)" font-family="Georgia, 'Times New Roman', serif" fill="#6b4a2d" text-anchor="middle">
+    <text x="0" y="-8" font-size="56">A</text>
+    <text x="28" y="18" font-size="36">&amp;</text>
+    <text x="56" y="-8" font-size="56">S</text>
+  </g>
+</svg>

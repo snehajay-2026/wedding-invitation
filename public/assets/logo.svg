@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-labelledby="titleDesc">
+  <title id="titleDesc">Ajay & Sneha wedding logo</title>
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#d4a373" />
+      <stop offset="1" stop-color="#b08968" />
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.92" />
+      <stop offset="1" stop-color="#fff7ef" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="transparent" />
+
+  <!-- decorative rings -->
+  <g transform="translate(220,240)">
+    <circle r="160" fill="none" stroke="url(#g1)" stroke-width="12" opacity="0.95" />
+    <circle r="120" fill="none" stroke="url(#g2)" stroke-width="6" opacity="0.95" />
+  </g>
+
+  <g transform="translate(980,240) scale(0.9)">
+    <path d="M-120,-30 C-80,-70 0,-80 40,-40 C80,0 80,40 40,70 C0,100 -80,90 -120,50 C-160,10 -160,-10 -120,-30 Z" fill="#f7e5d6" opacity="0.95" />
+    <path d="M-80,-10 C-40,-40 20,-50 50,-20 C80,10 80,40 50,60 C20,80 -40,75 -80,45 C-120,15 -120,-5 -80,-10 Z" fill="#f2d9c2" opacity="0.95" />
+  </g>
+
+  <!-- center text -->
+  <g transform="translate(600,240)">
+    <text x="0" y="-20" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="url(#g1)">Ajay &amp; Sneha</text>
+    <text x="0" y="50" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#7b5a3c">You're invited</text>
+  </g>
+
+  <!-- flourish below -->
+  <g transform="translate(600,340)" fill="#b08968" opacity="0.9">
+    <path d="M-180,0 C-120,36 -60,36 0,18 C60,36 120,36 180,0" stroke="none" fill="#b08968" opacity="0.9" />
+  </g>
+</svg>
