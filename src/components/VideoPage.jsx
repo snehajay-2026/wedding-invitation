@@ -62,10 +62,36 @@ export default function VideoPage({ onNext, onBack, onUnlockAudio, onOpenUpload,
   }, [showVideo, onNext]);
 
   useEffect(() => {
+    const bell = new Audio(bellUrl);
+    bell.preload = "auto";
+    bellRef.current = bell;
+
     return () => {
+      if (bellRef.current) {
+        try {
+          bellRef.current.pause();
+        } catch {}
+      }
+
       if (openTimerRef.current) clearTimeout(openTimerRef.current);
     };
-  }, []);
+  }, [bellUrl]);
+
+  function playBell() {
+    const bell = bellRef.current;
+
+    if (!bell) return;
+
+    try {
+      bell.currentTime = 0;
+      bell.play().catch(() => {});
+    } catch {
+      try {
+        const fallbackBell = new Audio(bellUrl);
+        fallbackBell.play().catch(() => {});
+      } catch {}
+    }
+  }
 
   // Click handler: open the card immediately on first interaction.
   function handleOpen() {
@@ -79,30 +105,18 @@ export default function VideoPage({ onNext, onBack, onUnlockAudio, onOpenUpload,
     setShowVideo(true);
     setIsOpening(false);
 
-    try {
-      const a = new Audio(bellUrl);
-      bellRef.current = a;
-      a.play().catch(() => {});
-    } catch (err) {
-      // no-op: opening already happened above
-    }
+    playBell();
   }
 
-  function handleTouchOpen(e) {
+  function handleTouchOpen(pointerId = "touch") {
     if (isOpening || opened) return;
-    dragRef.current = { triggered: true, id: e.pointerId };
+    dragRef.current = { triggered: true, id: pointerId };
     setIsOpening(true);
     setPearlLift(true);
 
     if (onUnlockAudio) onUnlockAudio();
 
-    try {
-      const a = new Audio(bellUrl);
-      bellRef.current = a;
-      a.play().catch(() => {});
-    } catch (err) {
-      // no-op: invitation still opens after lift animation
-    }
+    playBell();
 
     if (openTimerRef.current) clearTimeout(openTimerRef.current);
     openTimerRef.current = setTimeout(() => {
@@ -195,7 +209,7 @@ export default function VideoPage({ onNext, onBack, onUnlockAudio, onOpenUpload,
                     if (isOpening) return;
 
                     if (e.pointerType && e.pointerType !== "mouse") {
-                      handleTouchOpen(e);
+                      handleTouchOpen(e.pointerId);
                       return;
                     }
 
