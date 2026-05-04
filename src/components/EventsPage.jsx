@@ -323,9 +323,10 @@ export default function EventsPage({ onNext, onBack, muted, setMuted, lang = "mr
       <p className="footer">{content.footer}</p>
 
       <div className="nav-row">
-        {onBack ? <button className="nav-btn back-btn" onClick={onBack}>←</button> : <div />}
-        {onNext ? <button className="nav-btn forward-btn" onClick={onNext}>→</button> : <div />}
+        {onBack ? <button className="nav-btn back-btn icon-tooltip" data-tooltip="Back" onClick={onBack}>←</button> : <div />}
+        {onNext ? <button className="nav-btn forward-btn icon-tooltip" data-tooltip="Next" onClick={onNext}>→</button> : <div />}
       </div>
     </div>
   );
 }
+

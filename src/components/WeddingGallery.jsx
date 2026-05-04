@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./WeddingGallery.css";
 
-export default function WeddingGallery({ onBack, lang = "mr" }) {
+export default function WeddingGallery({ onBack, onHome, lang = "mr" }) {
   const copy = {
     mr: {
       heading: "📸 Wedding Memory Wall",
@@ -58,6 +58,7 @@ export default function WeddingGallery({ onBack, lang = "mr" }) {
 	      likes: "likes",
     },
   }[lang];
+  const homeLabel = lang === "mr" ? "Go to start page" : "Go to start page";
 
 	const STORAGE_KEYS = {
 		likes: "wedding-gallery-like-counts",
@@ -310,7 +311,7 @@ export default function WeddingGallery({ onBack, lang = "mr" }) {
     <div className="card gallery-page gallery-card-shell fade-in">
 
       {onBack && (
-        <button className="nav-btn back-btn" onClick={onBack}>
+        <button className="nav-btn back-btn icon-tooltip" data-tooltip="Back" onClick={onBack}>
           ←
         </button>
       )}
@@ -441,6 +442,31 @@ export default function WeddingGallery({ onBack, lang = "mr" }) {
         )}
 
       </div>
+
+      {(onBack || onHome) && (
+        <div className="nav-row">
+          {onBack ? (
+            <button className="nav-btn back-btn icon-tooltip" data-tooltip="Back" onClick={onBack}>
+              {"\u2190"}
+            </button>
+          ) : (
+            <div />
+          )}
+          <div />
+          {onHome ? (
+            <button
+              className="nav-btn forward-btn icon-tooltip"
+              data-tooltip="Home"
+              onClick={onHome}
+              aria-label={homeLabel}
+            >
+              {"\u2302"}
+            </button>
+          ) : (
+            <div />
+          )}
+        </div>
+      )}
 
 
       {viewer && (

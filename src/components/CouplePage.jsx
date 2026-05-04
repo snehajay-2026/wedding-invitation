@@ -220,13 +220,13 @@ export default function CouplePage({ onNext, onBack, muted, setMuted, lang = "mr
 
       <div className="nav-row" aria-hidden={false}>
         {onBack ? (
-          <button className="nav-btn back-btn" onClick={onBack} aria-label={copy.back}>←</button>
+          <button className="nav-btn back-btn icon-tooltip" data-tooltip="Back" onClick={onBack} aria-label={copy.back}>←</button>
         ) : (
           <div />
         )}
         <div />
         {onNext ? (
-          <button className="nav-btn forward-btn" onClick={onNext} aria-label={copy.next}>→</button>
+          <button className="nav-btn forward-btn icon-tooltip" data-tooltip="Next" onClick={onNext} aria-label={copy.next}>→</button>
         ) : (
           <div />
         )}
@@ -234,3 +234,4 @@ export default function CouplePage({ onNext, onBack, muted, setMuted, lang = "mr
     </div>
   );
 }
+

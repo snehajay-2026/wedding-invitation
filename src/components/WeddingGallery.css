@@ -3,6 +3,10 @@
 	margin: 0 auto;
 }
 
+.card.gallery-card-shell.gallery-page > .back-btn {
+	display: none;
+}
+
 .card.gallery-card-shell.gallery-page {
 	display: grid;
 	gap: 18px;

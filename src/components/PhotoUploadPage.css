@@ -20,6 +20,10 @@
 	justify-self: center;
 }
 
+.card.upload-card.upload-page > .back-btn {
+	display: none;
+}
+
 .card.upload-card .preview-panel {
 	display: grid;
 	gap: 14px;

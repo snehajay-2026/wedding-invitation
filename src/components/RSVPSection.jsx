@@ -56,12 +56,12 @@ export default function RSVPSection({ onBack, onNext, muted, setMuted, lang = "m
 
       {onBack && (
         <div className="nav-row" aria-hidden={false}>
-          <button className="nav-btn back-btn" onClick={onBack} aria-label={copy.back}>
+          <button className="nav-btn back-btn icon-tooltip" data-tooltip="Back" onClick={onBack} aria-label={copy.back}>
             ←
           </button>
           <div />
           {onNext ? (
-            <button className="nav-btn forward-btn" onClick={onNext} aria-label={copy.next}>
+            <button className="nav-btn forward-btn icon-tooltip" data-tooltip="Next" onClick={onNext} aria-label={copy.next}>
               →
             </button>
           ) : (

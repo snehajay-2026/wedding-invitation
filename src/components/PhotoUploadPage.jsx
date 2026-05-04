@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./PhotoUploadPage.css";
 
-export default function PhotoUploadPage({ onBack, lang = "mr" }) {
+export default function PhotoUploadPage({ onBack, onNext, lang = "mr" }) {
   const copy = {
     mr: {
       heading: "📸 आठवणी जतन करा",
@@ -34,6 +34,8 @@ export default function PhotoUploadPage({ onBack, lang = "mr" }) {
       photos: "photos",
     },
   }[lang];
+  const backLabel = lang === "mr" ? "Back" : "Go back";
+  const nextLabel = lang === "mr" ? "Wedding Wall" : "Open Wedding Wall";
 
   const [uploadCount, setUploadCount] = useState(0);
   const [guests, setGuests] = useState([]);
@@ -164,7 +166,7 @@ export default function PhotoUploadPage({ onBack, lang = "mr" }) {
     <div className="card upload-page upload-card fade-in">
 
       {onBack && (
-        <button className="nav-btn back-btn" onClick={onBack}>
+        <button className="nav-btn back-btn icon-tooltip" data-tooltip="Back" onClick={onBack}>
           ←
         </button>
       )}
@@ -271,6 +273,26 @@ export default function PhotoUploadPage({ onBack, lang = "mr" }) {
 
         </div>
 
+      )}
+
+      {(onBack || onNext) && (
+        <div className="nav-row">
+          {onBack ? (
+            <button className="nav-btn back-btn icon-tooltip" data-tooltip="Back" onClick={onBack} aria-label={backLabel}>
+              {"\u2190"}
+            </button>
+          ) : (
+            <div />
+          )}
+          <div />
+          {onNext ? (
+            <button className="nav-btn forward-btn icon-tooltip" data-tooltip="Next" onClick={onNext} aria-label={nextLabel}>
+              {"\u2192"}
+            </button>
+          ) : (
+            <div />
+          )}
+        </div>
       )}
 
     </div>

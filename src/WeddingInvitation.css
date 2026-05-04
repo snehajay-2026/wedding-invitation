@@ -75,10 +75,12 @@
 		transition: opacity .22s ease, transform .22s ease;
 		z-index: 10000;
 	}
-	.icon-tooltip:hover::after {
-		opacity: 1;
-		transform: translateX(-50%) translateY(0);
-	}
+.icon-tooltip:hover::after,
+.icon-tooltip:focus-visible::after,
+.icon-tooltip:active::after {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
 	.nav-btn:active{transform:translateY(1px)}
 	/* left/back */
 	.back-btn{left:18px}

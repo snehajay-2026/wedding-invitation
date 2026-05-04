@@ -138,7 +138,7 @@ export default function VideoPage({ onNext, onBack, onUnlockAudio, onOpenUpload,
 
       <div className="fold-wrapper fade-in">
         {onBack && (
-          <button className="back-btn" onClick={onBack} aria-label={copy.back}>
+          <button className="back-btn icon-tooltip" data-tooltip="Back" onClick={onBack} aria-label={copy.back}>
             ←
           </button>
         )}

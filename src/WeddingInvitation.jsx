@@ -389,6 +389,10 @@ export default function WeddingInvitation() {
             setPage(4);
             restartShehnai(true);
           }}
+          onNext={() => {
+            setPage(6);
+            restartShehnai(true);
+          }}
         />
 
       )}
@@ -404,6 +408,11 @@ export default function WeddingInvitation() {
           onBack={() => {
             setPage(5);
             restartShehnai(true);
+          }}
+          onHome={() => {
+            setPage(1);
+            setAudioShouldPlay(false);
+            restartShehnai(false);
           }}
         />
 
